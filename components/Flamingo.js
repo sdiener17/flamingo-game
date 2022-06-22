@@ -20,21 +20,22 @@ export default function Flamingo(){
     //     })
     // }
 
-    const runNow = () =>{
+    function runNow(){
         //setIsRunning(true);
-        // flamingo.play({
-        //     type:"walk",
-        //     fps: 7,
-        //     onFinish: ()=>{
-        //         setIsRunning(false)
-        //     }
-        // })
+        console.log("We are running");
+        flamingo.play({
+            type:"walk",
+            fps: 7,
+            onFinish: ()=>{
+                setIsRunning(false)
+            }
+        })
     }
 
     return(
         <View>
             <SpriteSheet
-                ref={ref => (flamingo = ref)}
+                ref={ref => (flamingo)}
                 source={require('../assets/sprites/FlamingoWalking2p.png')}
                 columns={2}
                 rows={2}
@@ -48,8 +49,8 @@ export default function Flamingo(){
                 }}
             />
             <TouchableWithoutFeedback onPress={runNow} style={{postion: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
-                {/* <View style={{postion: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/> */}
-                <View/>
+                <View pointerEvents='none' style={{postion: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}/>
+                {/* <View/> */}
             </TouchableWithoutFeedback>
         </View>
 
