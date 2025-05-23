@@ -59,8 +59,9 @@ export default function GamePage({
     <PageWrapper>
       <div className="inventory-and-shop">
         <div className="inventory">
+          <h2>Funds: </h2>
           <div className="funds">
-            <h2>Funds: </h2>${currA}, &{currB}, *{currC}
+            ${currA} | &{currB} | *{currC}
           </div>
           {playerData.map((item) => {
             // if (item.itemType === "currency") {
@@ -80,6 +81,7 @@ export default function GamePage({
         </div>
         <div>
           <Shop
+            className="shop"
             playerData={playerData}
             updatePlayerData={updatePlayerData}
             currA={currA}
@@ -111,6 +113,18 @@ const PageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .funds {
+    border: 3px solid black;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  .inventory {
+    padding: 10px;
+    margin-right: 20px;
+  }
+  .shop {
+    padding: 10px;
+  }
   .inventory-and-shop {
     display: flex;
     flex-direction: row;

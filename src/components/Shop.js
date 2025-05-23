@@ -52,8 +52,9 @@ export default function Shop({
                   <div>{item.itemName} | </div>
                   <div>${item.currencyA}, </div>
                   <div>&{item.currencyB}, </div>
-                  <div>*{item.currencyC}, </div>
+                  <div>*{item.currencyC} </div>
                   <button
+                    className="buy-button"
                     onClick={(e) =>
                       itemBuyClick(
                         item.itemId,
@@ -84,5 +85,15 @@ const PageWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+  }
+  .buy-button {
+    border-radius: 3px;
+    background-color: var(--buttonOne);
+    padding: 5px;
+    margin: 5px;
+  }
+  .buy-button:hover {
+    background-color: var(--buttonOneHover);
   }
 `;
