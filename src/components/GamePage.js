@@ -59,7 +59,9 @@ export default function GamePage({
     <PageWrapper>
       <div className="inventory-and-shop">
         <div className="inventory">
-          You Have ${currA}, &{currB}, *{currC}
+          <div className="funds">
+            <h2>Funds: </h2>${currA}, &{currB}, *{currC}
+          </div>
           {playerData.map((item) => {
             // if (item.itemType === "currency") {
             //   return (
@@ -92,6 +94,7 @@ export default function GamePage({
 
       <div>
         <button
+          className="mainButton"
           onClick={(e) => {
             onMainButtonClick(e);
           }}
@@ -106,6 +109,8 @@ export default function GamePage({
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .inventory-and-shop {
     display: flex;
     flex-direction: row;

@@ -43,35 +43,46 @@ export default function Shop({
   return (
     <PageWrapper>
       <h2>Shop</h2>
-      <p className="purchase-message">{purchaseState}</p>
       <div>
         <div className="shop-flamingos">
           {shopData.map((item) => {
             return (
               <div>
-                {item.itemName} | ${item.currencyA}, &{item.currencyB}, *
-                {item.currencyC}{" "}
-                <button
-                  onClick={(e) =>
-                    itemBuyClick(
-                      item.itemId,
-                      item.currencyA,
-                      item.currencyB,
-                      item.currencyC
-                    )
-                  }
-                >
-                  Buy
-                </button>
+                <div className="shop-item">
+                  <div>{item.itemName} | </div>
+                  <div>${item.currencyA}, </div>
+                  <div>&{item.currencyB}, </div>
+                  <div>*{item.currencyC}, </div>
+                  <button
+                    onClick={(e) =>
+                      itemBuyClick(
+                        item.itemId,
+                        item.currencyA,
+                        item.currencyB,
+                        item.currencyC
+                      )
+                    }
+                  >
+                    Buy
+                  </button>
+                </div>
               </div>
             );
           })}
         </div>
       </div>
+      <p className="purchase-message">{purchaseState}</p>
     </PageWrapper>
   );
 }
 
 const PageWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  .shop-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
