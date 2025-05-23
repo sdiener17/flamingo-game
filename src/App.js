@@ -8,43 +8,43 @@ import AboutPage from "./components/AboutPage";
 import { useState } from "react";
 
 export default function App() {
-  const [currA, updateCurrA] = useState(12);
+  const [currA, updateCurrA] = useState(0);
   const [currB, updateCurrB] = useState(0);
   const [currC, updateCurrC] = useState(0);
   const [playerData, updatePlayerData] = useState([
-    // {
-    //   itemId: 0,
-    //   itemName: "$",
-    //   itemType: "currency",
-    //   quantityOwned: 0,
-    // },
-    // {
-    //   itemId: 1,
-    //   itemName: "&",
-    //   itemType: "currency",
-    //   quantityOwned: 0,
-    // },
-    // {
-    //   itemId: 2,
-    //   itemName: "*",
-    //   itemType: "currency",
-    //   quantityOwned: 0,
-    // },
     {
-      itemId: 3,
+      itemId: 0,
       itemName: "Greater Flamingo",
+      itemType: "flamingo",
+      quantityOwned: 1,
+    },
+    {
+      itemId: 1,
+      itemName: "Carribbean Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
     {
-      itemId: 4,
+      itemId: 2,
       itemName: "Lesser Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
     {
-      itemId: 5,
+      itemId: 3,
       itemName: "Andean Flamingo",
+      itemType: "flamingo",
+      quantityOwned: 0,
+    },
+    {
+      itemId: 4,
+      itemName: "Chilean Flamingo",
+      itemType: "flamingo",
+      quantityOwned: 0,
+    },
+    {
+      itemId: 5,
+      itemName: "Puna Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
