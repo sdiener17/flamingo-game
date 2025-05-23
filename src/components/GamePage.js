@@ -61,7 +61,9 @@ export default function GamePage({
         <div className="inventory">
           <h2>Funds: </h2>
           <div className="funds">
-            ${currA} | &{currB} | *{currC}
+            <div className="fund">${currA}</div>
+            <div className="fund">&{currB}</div>
+            <div className="fund">*{currC}</div>
           </div>
           {playerData.map((item) => {
             // if (item.itemType === "currency") {
@@ -73,7 +75,7 @@ export default function GamePage({
             //   );
             // }
             return (
-              <div>
+              <div className="inventory-item">
                 {item.itemName} | {item.quantityOwned}
               </div>
             );
@@ -94,15 +96,16 @@ export default function GamePage({
         </div>
       </div>
 
-      <div>
+      <div className="options">
         <button
           className="mainButton"
           onClick={(e) => {
             onMainButtonClick(e);
           }}
         >
-          CLICK
+          Work!
         </button>
+        <button className="mainButton">Go fishing</button>
       </div>
     </PageWrapper>
   );
@@ -114,6 +117,9 @@ const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   .funds {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     border: 3px solid black;
     border-radius: 3px;
     padding: 5px;
@@ -121,6 +127,9 @@ const PageWrapper = styled.div`
   .inventory {
     padding: 10px;
     margin-right: 20px;
+  }
+  .inventory-item {
+    margin: 10px;
   }
   .shop {
     padding: 10px;
