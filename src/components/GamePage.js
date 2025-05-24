@@ -32,7 +32,11 @@ export default function GamePage({
     //If player can't feed army
     if (fishOwned < flamingoCounter * 2) {
       //display error message
-      setFeedingErrorMessage("Your army needs more food than that!");
+      let fishNeeded = flamingoCounter * 2 - fishOwned;
+      setFeedingErrorMessage(
+        `Your army needs more food than that! (Need
+          ${fishNeeded} more fish)`
+      );
       return;
     } else {
       //variables to hold the updated total funds
