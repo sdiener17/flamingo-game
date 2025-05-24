@@ -43,3 +43,7 @@ body,
   padding-bottom: 40px;
 }
 
+.link-to-button {
+  text-decoration: none;
+  color: black;
+}

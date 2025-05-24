@@ -4,6 +4,7 @@ import Shop from "./Shop";
 import { shopData } from "../data/shopData";
 import Fishing from "./Fishing";
 import HelpPage from "./HelpPage";
+import { Link } from "react-router-dom";
 
 export default function GamePage({
   playerData,
@@ -172,6 +173,11 @@ export default function GamePage({
               }}
             >
               Help
+            </button>
+            <button className="mainButton">
+              <Link className="link-to-button" to="/">
+                Home
+              </Link>
             </button>
           </div>
         </div>
