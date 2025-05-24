@@ -141,9 +141,9 @@ export default function GamePage({
                 })}
               </div>
             </div>
-            <div>
+            <div className="shop-wrapper">
               <Shop
-                className="shop"
+                className=""
                 playerData={playerData}
                 updatePlayerData={updatePlayerData}
                 currA={currA}
@@ -221,6 +221,7 @@ const PageWrapper = styled.div`
     flex-grow: 2;
     padding: 10px;
     margin-right: 20px;
+    flex-basis: 60%;
   }
   .inventory-items {
     display: flex;
@@ -235,10 +236,12 @@ const PageWrapper = styled.div`
     padding: 5px;
     margin: 10px;
   }
-  .shop {
+  .shop-wrapper {
     padding: 10px;
     display: flex;
     flex-grow: 1;
+    flex-basis: 40%;
+    flex-wrap: wrap;
   }
   .inventory-and-shop {
     display: flex;

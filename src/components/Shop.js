@@ -84,13 +84,17 @@ export default function Shop({
               you any fish to work.
             </li>
             <li>
-              Andean Flamingo: The Andean flamingo can be hired for pearls,
-              gold, and emeralds. They bring in a small amount of gold and
-              emeralds, but their main job is to catch some extra fish for the
-              army! They have a chance of bringing back 0-10 fish per trip.
+              <b>Andean Flamingo: </b>The Andean flamingo can be hired for
+              pearls, gold, and emeralds. They bring in a small amount of gold
+              and emeralds, but their main job is to catch some extra fish for
+              the army! They have a chance of bringing back 0-10 fish per trip.
             </li>
-            <li>Chilean Flamingo: Things about</li>
-            <li>Puna Flamingo: Things about</li>
+            <li>
+              <b>Chilean Flamingo: </b>Things about
+            </li>
+            <li>
+              <b>Puna Flamingo: </b>Things about
+            </li>
           </ul>
         </div>
       )}
