@@ -50,30 +50,32 @@ export default function App() {
     },
   ]);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route
-          path="/play"
-          element={
-            <GamePage
-              playerData={playerData}
-              updatePlayerData={updatePlayerData}
-              currA={currA}
-              currB={currB}
-              currC={currC}
-              updateCurrA={updateCurrA}
-              updateCurrB={updateCurrB}
-              updateCurrC={updateCurrC}
-            />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <PageWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/play"
+            element={
+              <GamePage
+                playerData={playerData}
+                updatePlayerData={updatePlayerData}
+                currA={currA}
+                currB={currB}
+                currC={currC}
+                updateCurrA={updateCurrA}
+                updateCurrB={updateCurrB}
+                updateCurrC={updateCurrC}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </PageWrapper>
   );
 }
 
 const PageWrapper = styled.div`
-  size: 100;
+  height: 100vh;
 `;

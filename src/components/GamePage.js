@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Shop from "./Shop";
 import { shopData } from "../data/shopData";
+import Fishing from "./Fishing";
 
 export default function GamePage({
   playerData,
@@ -13,7 +14,9 @@ export default function GamePage({
   updateCurrB,
   updateCurrC,
 }) {
-  useEffect(() => {}, [playerData, currA, currB, currC]);
+  const [currentPage, updateCurrentPage] = useState("main");
+  const [fishOwned, setFishOwned] = useState(0);
+  useEffect(() => {}, [playerData, currA, currB, currC, fishOwned]);
 
   //BUTTON CLICK FUNCTION
   function onMainButtonClick(e) {
@@ -55,63 +58,89 @@ export default function GamePage({
     updateCurrC(newC);
   }
 
+  //FISHING BUTTON
+  function onFishingClick(e) {
+    updateCurrentPage("fishing");
+  }
+
   return (
     <PageWrapper>
-      <div className="inventory-and-shop">
-        <div className="inventory">
-          <h2>Funds: </h2>
-          <div className="funds">
-            <div className="fund">${currA}</div>
-            <div className="fund">&{currB}</div>
-            <div className="fund">*{currC}</div>
-          </div>
-          {playerData.map((item) => {
-            // if (item.itemType === "currency") {
-            //   return (
-            //     <div>
-            //       {item.itemName}
-            //       {item.quantityOwned}
-            //     </div>
-            //   );
-            // }
-            return (
-              <div className="inventory-item">
-                {item.itemName} | {item.quantityOwned}
-              </div>
-            );
-          })}
-        </div>
+      {currentPage === "fishing" && (
+        <Fishing
+          updateCurrentPage={updateCurrentPage}
+          setFishOwned={setFishOwned}
+        />
+      )}
+      {currentPage === "main" && (
         <div>
-          <Shop
-            className="shop"
-            playerData={playerData}
-            updatePlayerData={updatePlayerData}
-            currA={currA}
-            currB={currB}
-            currC={currC}
-            updateCurrA={updateCurrA}
-            updateCurrB={updateCurrB}
-            updateCurrC={updateCurrC}
-          />
-        </div>
-      </div>
+          <div className="inventory-and-shop">
+            <div className="inventory">
+              <h2>Funds: </h2>
+              <div className="funds">
+                <div className="fund">${currA}</div>
+                <div className="fund">&{currB}</div>
+                <div className="fund">*{currC}</div>
+                <div className="fund">Fish: {fishOwned}</div>
+              </div>
+              {playerData.map((item) => {
+                // if (item.itemType === "currency") {
+                //   return (
+                //     <div>
+                //       {item.itemName}
+                //       {item.quantityOwned}
+                //     </div>
+                //   );
+                // }
+                return (
+                  <div className="inventory-item">
+                    {item.itemName} | {item.quantityOwned}
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <Shop
+                className="shop"
+                playerData={playerData}
+                updatePlayerData={updatePlayerData}
+                currA={currA}
+                currB={currB}
+                currC={currC}
+                updateCurrA={updateCurrA}
+                updateCurrB={updateCurrB}
+                updateCurrC={updateCurrC}
+              />
+            </div>
+          </div>
 
-      <div className="options">
-        <button
-          className="mainButton"
-          onClick={(e) => {
-            onMainButtonClick(e);
-          }}
-        >
-          Work!
-        </button>
-        <button className="mainButton">Go fishing</button>
-      </div>
+          <div className="options">
+            <button
+              className="mainButton"
+              onClick={(e) => {
+                onMainButtonClick(e);
+              }}
+            >
+              Work!
+            </button>
+            <button
+              className="mainButton"
+              onClick={(e) => {
+                onFishingClick(e);
+              }}
+            >
+              Go fishing
+            </button>
+          </div>
+        </div>
+      )}
     </PageWrapper>
   );
 }
 
 const PageWrapper = styled.div`
+  top: 0;
+  height: 100%;
+  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: center;
