@@ -189,6 +189,7 @@ export default function GamePage({
 
 const PageWrapper = styled.div`
   top: 0;
+  margin-top: 10px;
   height: 100%;
   padding: 20px;
   position: sticky;
@@ -210,7 +211,7 @@ const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 50%;
-    /* flex-grow: 2; */
+    flex-grow: 2;
     padding: 10px;
     margin-right: 20px;
   }
@@ -229,6 +230,8 @@ const PageWrapper = styled.div`
   }
   .shop {
     padding: 10px;
+    display: flex;
+    flex-grow: 1;
   }
   .inventory-and-shop {
     display: flex;

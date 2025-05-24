@@ -21,13 +21,13 @@ export default function App() {
     },
     {
       itemId: 1,
-      itemName: "Carribbean Flamingo",
+      itemName: "Lesser Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
     {
       itemId: 2,
-      itemName: "Lesser Flamingo",
+      itemName: "Carribbean Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
