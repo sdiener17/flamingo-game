@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
 import AboutPage from "./components/AboutPage";
 import { useState } from "react";
+import HelpPage from "./components/HelpPage";
 
 export default function App() {
   const [currA, updateCurrA] = useState(0);
@@ -20,13 +21,13 @@ export default function App() {
     },
     {
       itemId: 1,
-      itemName: "Carribbean Flamingo",
+      itemName: "Lesser Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
     {
       itemId: 2,
-      itemName: "Lesser Flamingo",
+      itemName: "Carribbean Flamingo",
       itemType: "flamingo",
       quantityOwned: 0,
     },
@@ -55,6 +56,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          {/* <Route path="/help" element={<HelpPage />} /> */}
           <Route
             exact
             path="/play"

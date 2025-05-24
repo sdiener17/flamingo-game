@@ -44,6 +44,7 @@ export default function GamePage({
       let newA = currA;
       let newB = currB;
       let newC = currC;
+      let newFish = 0;
 
       //computing updated funds for working
       playerData.map((item) => {
@@ -69,12 +70,18 @@ export default function GamePage({
               newC += ran <= shopItem.rLootCChance ? shopItem.rLootCAmount : 0;
             }
             newC += shopItem.gLootC * item.quantityOwned;
+            //Computes the fish amount gained per flamingo
+            for (let i = 0; i < item.quantityOwned; i++) {
+              let ranFish = Math.floor(Math.random() * 9);
+              newFish += shopItem.fishLootTable[ranFish];
+            }
           }
         });
       });
       //updating funds and fish amount
+      let fishTotal = fishOwned - flamingoCounter * 2 + newFish;
       setFeedingErrorMessage("");
-      setFishOwned(fishOwned - flamingoCounter * 2);
+      setFishOwned(fishTotal);
       updateCurrA(newA);
       updateCurrB(newB);
       updateCurrC(newC);
@@ -128,15 +135,15 @@ export default function GamePage({
                     <div className="inventory-item">
                       <div>{item.itemName}</div>
                       <div>Owned: {item.quantityOwned}</div>
-                      <div>Cost To Work: {item.quantityOwned}</div>
+                      <div>Cost To Work: {item.quantityOwned * 2}</div>
                     </div>
                   );
                 })}
               </div>
             </div>
-            <div>
+            <div className="shop-wrapper">
               <Shop
-                className="shop"
+                className=""
                 playerData={playerData}
                 updatePlayerData={updatePlayerData}
                 currA={currA}
@@ -189,6 +196,7 @@ export default function GamePage({
 
 const PageWrapper = styled.div`
   top: 0;
+  margin-top: 10px;
   height: 100%;
   padding: 20px;
   position: sticky;
@@ -210,9 +218,10 @@ const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 50%;
-    /* flex-grow: 2; */
+    flex-grow: 2;
     padding: 10px;
     margin-right: 20px;
+    flex-basis: 60%;
   }
   .inventory-items {
     display: flex;
@@ -227,8 +236,12 @@ const PageWrapper = styled.div`
     padding: 5px;
     margin: 10px;
   }
-  .shop {
+  .shop-wrapper {
     padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 40%;
+    flex-wrap: wrap;
   }
   .inventory-and-shop {
     display: flex;
