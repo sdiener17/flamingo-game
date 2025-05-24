@@ -5,14 +5,20 @@ import { Link } from "react-router-dom";
 export default function HomePage() {
   return (
     <PageWrapper>
-      <button className="mainButton" disabled>
+      {/* <button className="mainButton" disabled>
         Load Save Data
-      </button>
-      <button className="mainButton">
-        <Link className="link-to-button" to="/play">
-          New Game
+      </button> */}
+      <Link className="link-to-button" to="/play">
+        <button className="mainButton">New Game</button>
+      </Link>
+      <Link className="link-to-button" to="/about">
+        <button className="mainButton">About</button>
+      </Link>
+      {/* <button className="mainButton">
+        <Link className="link-to-button" to="/help">
+          Help
         </Link>
-      </button>
+      </button> */}
     </PageWrapper>
   );
 }
