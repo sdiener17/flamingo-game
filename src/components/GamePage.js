@@ -17,46 +17,63 @@ export default function GamePage({
 }) {
   const [currentPage, updateCurrentPage] = useState("main");
   const [fishOwned, setFishOwned] = useState(0);
+  const [feedingErrorMessage, setFeedingErrorMessage] = useState("");
   useEffect(() => {}, [playerData, currA, currB, currC, fishOwned]);
 
   //BUTTON CLICK FUNCTION
-  function onMainButtonClick(e) {
-    let newA = currA;
-    let newB = currB;
-    let newC = currC;
+  function onWorkButtonClick(e) {
+    e.preventDefault();
+
+    //check that player has enough fish to feed the army
+    let flamingoCounter = 0;
     playerData.map((item) => {
-      console.log("NEWA " + newA);
-      shopData.map((shopItem) => {
-        //if this owned item matches the shop item
-        if (item.itemId === shopItem.itemId) {
-          let ran = 0;
-          //Computes the random chance of extra loot per flamingo owned
-          for (let i = 0; i < item.quantityOwned; i++) {
-            ran = Math.floor(Math.random() * 100);
-            newA += ran <= shopItem.rLootAChance ? shopItem.rLootAAmount : 0;
-            console.log("In loop: " + ran + ", " + newA);
-          }
-          newA += shopItem.gLootA * item.quantityOwned;
-          //Computes currency B
-          for (let i = 0; i < item.quantityOwned; i++) {
-            ran = Math.floor(Math.random() * 100);
-            newB += ran <= shopItem.rLootBChance ? shopItem.rLootBAmount : 0;
-            console.log("In loop: " + ran + ", " + newB);
-          }
-          newB += shopItem.gLootB * item.quantityOwned;
-          //Computes Currency C
-          for (let i = 0; i < item.quantityOwned; i++) {
-            ran = Math.floor(Math.random() * 100);
-            newC += ran <= shopItem.rLootCChance ? shopItem.rLootCAmount : 0;
-            console.log("In loop: " + ran + ", " + newC);
-          }
-          newC += shopItem.gLootC * item.quantityOwned;
-        }
-      });
+      flamingoCounter += item.quantityOwned;
     });
-    updateCurrA(newA);
-    updateCurrB(newB);
-    updateCurrC(newC);
+    //If player can't feed army
+    if (fishOwned < flamingoCounter * 2) {
+      //display error message
+      setFeedingErrorMessage("Your army needs more food than that!");
+      return;
+    } else {
+      //variables to hold the updated total funds
+      let newA = currA;
+      let newB = currB;
+      let newC = currC;
+
+      //computing updated funds for working
+      playerData.map((item) => {
+        shopData.map((shopItem) => {
+          //if this owned item matches the shop item
+          if (item.itemId === shopItem.itemId) {
+            let ran = 0;
+            //Computes the random chance of extra loot per flamingo owned
+            for (let i = 0; i < item.quantityOwned; i++) {
+              ran = Math.floor(Math.random() * 100);
+              newA += ran <= shopItem.rLootAChance ? shopItem.rLootAAmount : 0;
+            }
+            newA += shopItem.gLootA * item.quantityOwned;
+            //Computes currency B
+            for (let i = 0; i < item.quantityOwned; i++) {
+              ran = Math.floor(Math.random() * 100);
+              newB += ran <= shopItem.rLootBChance ? shopItem.rLootBAmount : 0;
+            }
+            newB += shopItem.gLootB * item.quantityOwned;
+            //Computes Currency C
+            for (let i = 0; i < item.quantityOwned; i++) {
+              ran = Math.floor(Math.random() * 100);
+              newC += ran <= shopItem.rLootCChance ? shopItem.rLootCAmount : 0;
+            }
+            newC += shopItem.gLootC * item.quantityOwned;
+          }
+        });
+      });
+      //updating funds and fish amount
+      setFeedingErrorMessage("");
+      setFishOwned(fishOwned - flamingoCounter * 2);
+      updateCurrA(newA);
+      updateCurrB(newB);
+      updateCurrC(newC);
+    }
   }
 
   //FISHING BUTTON
@@ -126,12 +143,12 @@ export default function GamePage({
               />
             </div>
           </div>
-
+          <div>{feedingErrorMessage}</div>
           <div className="options">
             <button
               className="mainButton"
               onClick={(e) => {
-                onMainButtonClick(e);
+                onWorkButtonClick(e);
               }}
             >
               Work!

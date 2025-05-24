@@ -18,9 +18,9 @@ export default function HelpPage({ updateCurrentPage }) {
         <h3>Flamingos need to eat!</h3>
         <p>
           You must have enough fish to feed all your flamingos in order to put
-          them to work. If you don't have enough fish, head over to the pond to
-          go fishing! Or, grab yourself some Andean flamingos and send them to
-          fish for you.
+          them to work. If you don't have enough fish (2 fish per flamingo to be
+          exact), head over to the pond to go fishing! Or, grab yourself some
+          Andean flamingos and send them to fish for you.
         </p>
         <h3>Hiring flamingos isn't free</h3>
         <p>
