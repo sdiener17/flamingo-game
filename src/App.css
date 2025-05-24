@@ -1,7 +1,7 @@
 :root {
   --siteColorOne: #b88fab;
   --siteColorTwo: #5f9bc4;
-  --siteColorThree: #ffffff;
+  --siteColorThree: #705066;
   --buttonOne: #8a8a8a;
   --buttonOneHover: #616161;
   --mainWhite: #ffffff;
@@ -30,10 +30,15 @@ body,
   padding: 10px;
   border-radius: 5px;
   font-size: 1.2rem;
+  margin: 10px;
   font-family: "Pixelify Sans", sans-serif;
   background-color: var(--buttonOne);
 }
 .mainButton:hover {
   background-color: var(--buttonOneHover);
+}
+
+.default-bottom {
+  margin-bottom: 60px;
 }
 

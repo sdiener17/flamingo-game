@@ -75,28 +75,33 @@ export default function GamePage({
         <div>
           <div className="inventory-and-shop">
             <div className="inventory">
-              <h2>Funds: </h2>
+              <h2>Funds</h2>
               <div className="funds">
                 <div className="fund">${currA}</div>
                 <div className="fund">&{currB}</div>
                 <div className="fund">*{currC}</div>
                 <div className="fund">Fish: {fishOwned}</div>
               </div>
-              {playerData.map((item) => {
-                // if (item.itemType === "currency") {
-                //   return (
-                //     <div>
-                //       {item.itemName}
-                //       {item.quantityOwned}
-                //     </div>
-                //   );
-                // }
-                return (
-                  <div className="inventory-item">
-                    {item.itemName} | {item.quantityOwned}
-                  </div>
-                );
-              })}
+              <h2>Flamingos</h2>
+              <div className="inventory-items">
+                {playerData.map((item) => {
+                  // if (item.itemType === "currency") {
+                  //   return (
+                  //     <div>
+                  //       {item.itemName}
+                  //       {item.quantityOwned}
+                  //     </div>
+                  //   );
+                  // }
+                  return (
+                    <div className="inventory-item">
+                      <div>{item.itemName}</div>
+                      <div>Owned: {item.quantityOwned}</div>
+                      <div>Cost To Work: {item.quantityOwned}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <div>
               <Shop
@@ -133,6 +138,7 @@ export default function GamePage({
           </div>
         </div>
       )}
+      <div className="default-bottom" />
     </PageWrapper>
   );
 }
@@ -140,6 +146,7 @@ export default function GamePage({
 const PageWrapper = styled.div`
   top: 0;
   height: 100%;
+  padding: 20px;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -149,15 +156,31 @@ const PageWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 30px;
+    width: 50%;
     border: 3px solid black;
     border-radius: 3px;
     padding: 5px;
   }
   .inventory {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* flex-grow: 2; */
     padding: 10px;
     margin-right: 20px;
   }
+  .inventory-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .inventory-item {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--siteColorThree);
+    border-radius: 3px;
+    padding: 5px;
     margin: 10px;
   }
   .shop {
