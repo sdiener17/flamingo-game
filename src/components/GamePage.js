@@ -23,7 +23,7 @@ export default function GamePage({
 
   //BUTTON CLICK FUNCTION
   function onWorkButtonClick(e) {
-    e.preventDefault();
+    e.preventDefault(); //hi
 
     //check that player has enough fish to feed the army
     let flamingoCounter = 0;
