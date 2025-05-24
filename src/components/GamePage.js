@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Shop from "./Shop";
 import { shopData } from "../data/shopData";
 import Fishing from "./Fishing";
+import HelpPage from "./HelpPage";
 
 export default function GamePage({
   playerData,
@@ -63,6 +64,11 @@ export default function GamePage({
     updateCurrentPage("fishing");
   }
 
+  //HELP BUTTON
+  function onHelpClick(e) {
+    updateCurrentPage("help");
+  }
+
   return (
     <PageWrapper>
       {currentPage === "fishing" && (
@@ -70,6 +76,9 @@ export default function GamePage({
           updateCurrentPage={updateCurrentPage}
           setFishOwned={setFishOwned}
         />
+      )}
+      {currentPage === "help" && (
+        <HelpPage updateCurrentPage={updateCurrentPage} />
       )}
       {currentPage === "main" && (
         <div>
@@ -133,7 +142,15 @@ export default function GamePage({
                 onFishingClick(e);
               }}
             >
-              Go fishing
+              Pond
+            </button>
+            <button
+              className="mainButton"
+              onClick={(e) => {
+                onHelpClick(e);
+              }}
+            >
+              Help
             </button>
           </div>
         </div>

@@ -78,4 +78,5 @@ export default function App() {
 
 const PageWrapper = styled.div`
   height: 100vh;
+  /* padding-bottom: 100px; */
 `;
