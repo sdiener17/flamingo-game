@@ -25,8 +25,8 @@ export default function FishingPond({ setFishCaught }) {
     const containerHeight = container.offsetHeight;
     // const fishWidth = fishButton.offsetWidth;
     // const fishHeight = fishButton.offsetHeight;
-    const fishWidth = 25;
-    const fishHeight = 15;
+    const fishWidth = 45;
+    const fishHeight = 35;
     const newFish = {
       id: Date.now(),
       x: Math.floor(Math.random() * containerWidth - fishWidth), // position inside the container width, accounting for fish size
@@ -81,7 +81,8 @@ export default function FishingPond({ setFishCaught }) {
 
 const PageWrapper = styled.div`
   background-color: var(--siteColorTwo);
-  border: 5px solid black;
+  border: 5px solid rgb(69, 62, 54);
+  border-radius: 5px;
   height: 100%;
   width: 100%;
   .fish-button {
