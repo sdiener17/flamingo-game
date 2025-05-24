@@ -53,9 +53,10 @@ export default function App() {
     <PageWrapper>
       <BrowserRouter>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route
+            exact
             path="/play"
             element={
               <GamePage
