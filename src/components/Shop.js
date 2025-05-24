@@ -78,9 +78,17 @@ export default function Shop({
               larger load of gold.{" "}
             </li>
             <li>
-              <b>Carribbean Flamingo: </b> Information I guess
+              <b>Carribbean Flamingo: </b> The Carribbean flamingo can be hired
+              for pearls and gold. They bring in pearls, with a chance of gold
+              and emeralds. They sometimes catch their own lunch and won't cost
+              you any fish to work.
             </li>
-            <li>Andean Flamingo: Things about</li>
+            <li>
+              Andean Flamingo: The Andean flamingo can be hired for pearls,
+              gold, and emeralds. They bring in a small amount of gold and
+              emeralds, but their main job is to catch some extra fish for the
+              army! They have a chance of bringing back 0-10 fish per trip.
+            </li>
             <li>Chilean Flamingo: Things about</li>
             <li>Puna Flamingo: Things about</li>
           </ul>

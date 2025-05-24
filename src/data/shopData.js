@@ -14,6 +14,7 @@ export const shopData = [
     rLootBAmount: 1,
     rLootCChance: 0,
     rLootCAmount: 0,
+    fishLootTable: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
   {
     itemId: 1,
@@ -30,6 +31,7 @@ export const shopData = [
     rLootBAmount: 5,
     rLootCChance: 0,
     rLootCAmount: 0,
+    fishLootTable: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
   {
     itemId: 2,
@@ -46,6 +48,7 @@ export const shopData = [
     rLootBAmount: 2,
     rLootCChance: 5,
     rLootCAmount: 3,
+    fishLootTable: [0, 0, 0, 0, 0, 2, 2, 2, 2, 2],
   },
   {
     itemId: 3,
@@ -62,6 +65,7 @@ export const shopData = [
     rLootBAmount: 0,
     rLootCChance: 10,
     rLootCAmount: 1,
+    fishLootTable: [0, 0, 0, 1, 2, 2, 4, 6, 8, 10],
   },
   {
     itemId: 4,
@@ -78,6 +82,7 @@ export const shopData = [
     rLootBAmount: 1,
     rLootCChance: 20,
     rLootCAmount: 1,
+    fishLootTable: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
 
   {
@@ -95,5 +100,6 @@ export const shopData = [
     rLootBAmount: 1,
     rLootCChance: 0,
     rLootCAmount: 0,
+    fishLootTable: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
 ];

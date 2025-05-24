@@ -44,6 +44,7 @@ export default function GamePage({
       let newA = currA;
       let newB = currB;
       let newC = currC;
+      let newFish = 0;
 
       //computing updated funds for working
       playerData.map((item) => {
@@ -69,12 +70,18 @@ export default function GamePage({
               newC += ran <= shopItem.rLootCChance ? shopItem.rLootCAmount : 0;
             }
             newC += shopItem.gLootC * item.quantityOwned;
+            //Computes the fish amount gained per flamingo
+            for (let i = 0; i < item.quantityOwned; i++) {
+              let ranFish = Math.floor(Math.random() * 9);
+              newFish += shopItem.fishLootTable[ranFish];
+            }
           }
         });
       });
       //updating funds and fish amount
+      let fishTotal = fishOwned - flamingoCounter * 2 + newFish;
       setFeedingErrorMessage("");
-      setFishOwned(fishOwned - flamingoCounter * 2);
+      setFishOwned(fishTotal);
       updateCurrA(newA);
       updateCurrB(newB);
       updateCurrC(newC);
@@ -128,7 +135,7 @@ export default function GamePage({
                     <div className="inventory-item">
                       <div>{item.itemName}</div>
                       <div>Owned: {item.quantityOwned}</div>
-                      <div>Cost To Work: {item.quantityOwned}</div>
+                      <div>Cost To Work: {item.quantityOwned * 2}</div>
                     </div>
                   );
                 })}
